@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, useColorScheme } from 'react-native';
-import { Settings, User, Bell, Shield, Palette, Info, ChevronRight, MessageSquare, LogOut } from 'lucide-react-native';
+import { Settings, User, Bell, Shield, Palette, Info, ChevronRight, MessageSquare, LogOut, Share } from 'lucide-react-native';
 import { router } from 'expo-router';
 import { useTheme } from '@/context/ThemeContext';
 import { useAuth } from '@/context/AuthContext';
@@ -21,6 +21,7 @@ export default function SettingsScreen() {
   const settingsItems = [
     { icon: User, title: 'Profile', subtitle: 'Manage your account', action: 'profile' },
     { icon: Bell, title: 'Notifications', subtitle: 'Push notifications and alerts', action: 'notifications' },
+    { icon: Share, title: 'Share Cards', subtitle: 'Create and share your network cards', action: 'share' },
     { icon: MessageSquare, title: 'Send Feedback', subtitle: 'Report bugs, suggest features', action: 'feedback' },
     { icon: User, title: 'Usage', subtitle: 'Choose your app style and terminology', action: 'usage' },
     { icon: Palette, title: 'Appearance', subtitle: 'Theme and display options', action: 'appearance' },
@@ -60,6 +61,8 @@ export default function SettingsScreen() {
               onPress={() => {
                 if (item.action === 'feedback') {
                   router.push('/feedback/submit');
+                } else if (item.action === 'share') {
+                  router.push('/(share)/ShareScreen');
                 } else if (item.action === 'profile') {
                   router.push('/settings/profile');
                 } else if (item.action === 'appearance') {

@@ -11,15 +11,7 @@ import {
   Switch,
 } from 'react-native';
 import { useRouter } from 'expo-router';
-import { 
-  ArrowLeft, 
-  Settings as SettingsIcon, 
-  Download, 
-  Share as ShareIcon,
-  AspectRatio as AspectRatioIcon,
-  ChevronDown,
-  X
-} from 'lucide-react-native';
+import { ArrowLeft, Settings as SettingsIcon, Download, Share as ShareIcon, Ratio as AspectRatioIcon, ChevronDown, X } from 'lucide-react-native';
 import { ShareCard, ShareCardRef } from '@/components/share/ShareCard';
 import { ShareService } from '@/services/share/ShareService';
 import { getPrivacyPresetSettings } from '@/services/share/Privacy';

@@ -22,7 +22,7 @@ export default function AboutSettings() {
     isDark,
   };
 
-  const appVersion = Constants.expoConfig?.version || '1.0.0';
+  const appVersion = Constants.expoConfig?.version || '1.0.7';
   const buildNumber = Constants.expoConfig?.extra?.buildNumber || '1';
   const deviceInfo = {
     deviceName: Device.deviceName || 'Unknown Device',

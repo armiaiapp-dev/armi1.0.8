@@ -2,7 +2,7 @@
   "expo": {
     "name": "ARMi",
     "slug": "armi",
-    "version": "1.0.4",
+    "version": "1.0.7",
     "orientation": "portrait",
 
     "icon": "./assets/images/icon.png",
@@ -25,12 +25,12 @@
     "NSCameraUsageDescription": "ARMi needs camera access so you can take a new profile picture.",
     "NSPhotoLibraryAddUsageDescription": "ARMi may save photos to your library if you choose to keep them."
   },
-  "buildNumber": "4"
+  "buildNumber": "6"
     },
 
     "android": {
   "package": "com.armi.app",
-  "versionCode": 4,
+  "versionCode": 6,
   "adaptiveIcon": {
     "foregroundImage": "./assets/images/icon.png",
     "backgroundColor": "#000000"

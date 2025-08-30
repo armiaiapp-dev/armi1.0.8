@@ -38,7 +38,7 @@ export function TemplateBlurredPeek({ profiles, privacySettings, theme, aspectRa
     <View style={[styles.container, { backgroundColor: theme.background, height: containerHeight }]}>
       {/* Header */}
       <View style={styles.header}>
-        <View style={styles.logoContainer}>
+        <View style={[styles.logoContainer, { backgroundColor: theme.accent }]}>
           <Zap size={24} color={theme.text} />
           <Text style={[styles.logoText, { color: theme.text }]}>ARMi</Text>
         </View>
@@ -159,10 +159,13 @@ const styles = StyleSheet.create({
   logoContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
     marginBottom: 20,
   },
   logoText: {
-    fontSize: 28,
+    fontSize: 20,
     fontWeight: '700',
     marginLeft: 8,
   },
@@ -172,7 +175,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: 16,
   },
   profilesList: {
     flex: 1,

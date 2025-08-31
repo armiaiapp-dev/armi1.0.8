@@ -576,6 +576,8 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
+    paddingTop: 10,
+    paddingBottom: 10,
   },
   cardWrapper: {
     transform: [{ scale: 0.3 }],

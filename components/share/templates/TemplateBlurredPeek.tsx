@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   tagText: {
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: '500',
   },
   moreChip: {
@@ -295,11 +295,11 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   footerText: {
-    fontSize: 12,
+    fontSize: 18,
     marginBottom: 4,
   },
   footerLink: {
-    fontSize: 14,
+    fontSize: 20,
     fontWeight: '600',
   },
 });

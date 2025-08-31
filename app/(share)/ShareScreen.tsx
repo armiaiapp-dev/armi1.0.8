@@ -573,8 +573,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   previewContent: {
+    flexGrow: 1,
+    justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingVertical: 20,
+    paddingTop: 20,
+    paddingBottom: 20,
   },
   cardWrapper: {
     transform: [{ scale: 0.3 }],

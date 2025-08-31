@@ -209,12 +209,12 @@ const styles = StyleSheet.create({
   },
   tagText: {
     color: '#FFFFFF',
-    fontSize: 14,
+    fontSize: 18,
     fontWeight: '500',
   },
   tagCount: {
-    color: '#FFFFFF',
-    fontSize: 12,
+    fontSize: 16,
+    fontSize: 18,
     fontWeight: '700',
     backgroundColor: 'rgba(255, 255, 255, 0.3)',
     paddingHorizontal: 8,
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
   },
   newText: {
     color: '#FFFFFF',
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: '600',
   },
   footer: {
@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
   },
   footerText: {
     color: 'rgba(255, 255, 255, 0.8)',
-    fontSize: 14,
+    fontSize: 20,
     marginBottom: 4,
   },
   footerLink: {

@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   tagText: {
-    fontSize: 10,
+    fontSize: 14,
     fontWeight: '500',
   },
   footer: {
@@ -251,18 +251,18 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   moreText: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: '600',
   },
   footerBranding: {
     alignItems: 'center',
   },
   footerText: {
-    fontSize: 12,
+    fontSize: 18,
     marginBottom: 4,
   },
   footerLink: {
-    fontSize: 14,
+    fontSize: 20,
     fontWeight: '600',
   },
 });

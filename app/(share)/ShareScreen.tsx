@@ -19,10 +19,69 @@ import { analytics } from '@/services/analytics/analytics';
 import { shareCardTheme } from '@/theme/shareCardTheme';
 import { useTheme } from '@/context/ThemeContext';
 import { Profile, PrivacyPreset, TemplateType, AspectRatio, PrivacySettings } from '@/types/armi';
+import { DatabaseService } from '@/services/DatabaseService';
+import { useFocusEffect } from '@react-navigation/native';
 
-// Mock hook for roster data
+// Hook to fetch real roster data
 function useRoster() {
-  return debugGenerateFakeRoster(15);
+  const [profiles, setProfiles] = useState<Profile[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      loadProfiles();
+    }, [])
+  );
+
+  const loadProfiles = async () => {
+    try {
+      setLoading(true);
+      const data = await DatabaseService.getAllProfiles();
+      
+      // Convert database profiles to Share Card Profile format
+      const convertedProfiles: Profile[] = data.map(dbProfile => ({
+        id: dbProfile.id.toString(),
+        firstName: dbProfile.name.split(' ')[0] || dbProfile.name,
+        lastName: dbProfile.name.split(' ').slice(1).join(' ') || '',
+        avatarUrl: dbProfile.photoUri || undefined,
+        relationship: mapRelationship(dbProfile.relationship),
+        tags: Array.isArray(dbProfile.tags) 
+          ? dbProfile.tags.map(tag => typeof tag === 'string' ? tag : tag.text)
+          : [],
+        notes: dbProfile.notes || undefined,
+        phone: dbProfile.phone || undefined,
+        company: undefined, // Not stored in current DB schema
+        title: dbProfile.job || undefined,
+        kidsCount: Array.isArray(dbProfile.kids) ? dbProfile.kids.length : undefined,
+        createdAt: dbProfile.createdAt || new Date().toISOString(),
+      }));
+      
+      setProfiles(convertedProfiles);
+    } catch (error) {
+      console.error('Error loading profiles for share cards:', error);
+      // Fallback to empty array
+      setProfiles([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const mapRelationship = (dbRelationship: string): 'Friend' | 'Family' | 'Work' | 'Dating' | 'Other' => {
+    switch (dbRelationship?.toLowerCase()) {
+      case 'family':
+        return 'Family';
+      case 'friend':
+        return 'Friend';
+      case 'coworker':
+        return 'Work';
+      case 'partner':
+        return 'Dating';
+      default:
+        return 'Other';
+    }
+  };
+
+  return { profiles, loading };
 }
 
 export function debugGenerateFakeRoster(count: number): Profile[] {
@@ -80,7 +139,7 @@ export default function ShareScreen() {
   const [isCapturing, setIsCapturing] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
-  const profiles = useRoster();
+  const { profiles, loading } = useRoster();
   const theme = shareCardTheme[isDark ? 'dark' : 'light'];
 
   const appTheme = {

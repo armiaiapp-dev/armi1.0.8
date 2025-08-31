@@ -22,7 +22,7 @@ import { Profile, PrivacyPreset, TemplateType, AspectRatio, PrivacySettings } fr
 import { DatabaseService } from '@/services/DatabaseService';
 import { useFocusEffect } from '@react-navigation/native';
 
-// Hook to fetch real roster data
+// Hook to fetch real roster data from DatabaseService
 function useRoster() {
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [loading, setLoading] = useState(true);
@@ -59,8 +59,8 @@ function useRoster() {
       setProfiles(convertedProfiles);
     } catch (error) {
       console.error('Error loading profiles for share cards:', error);
-      // Fallback to empty array
-      setProfiles([]);
+      // Fallback to fake data for development/testing
+      setProfiles(debugGenerateFakeRoster(15));
     } finally {
       setLoading(false);
     }

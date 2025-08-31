@@ -22,7 +22,6 @@ export default function SettingsScreen() {
     { icon: User, title: 'Profile', subtitle: 'Manage your account', action: 'profile' },
     { icon: Bell, title: 'Notifications', subtitle: 'Push notifications and alerts', action: 'notifications' },
     { icon: Share, title: 'Share Cards', subtitle: 'Create and share your network cards', action: 'share' },
-    { icon: Share, title: 'Share Cards', subtitle: 'Create and share your network cards', action: 'share' },
     { icon: MessageSquare, title: 'Send Feedback', subtitle: 'Report bugs, suggest features', action: 'feedback' },
     { icon: User, title: 'Usage', subtitle: 'Choose your app style and terminology', action: 'usage' },
     { icon: Palette, title: 'Appearance', subtitle: 'Theme and display options', action: 'appearance' },
@@ -62,8 +61,6 @@ export default function SettingsScreen() {
               onPress={() => {
                 if (item.action === 'feedback') {
                   router.push('/feedback/submit');
-                } else if (item.action === 'share') {
-                  router.push('/(share)/ShareScreen');
                 } else if (item.action === 'share') {
                   router.push('/(share)/ShareScreen');
                 } else if (item.action === 'profile') {

@@ -279,6 +279,11 @@ export default function EditProfile() {
     }
   };
 
+  const handleRemovePhoto = () => {
+    setSelectedImage(null);
+    updateField('photoUri', null);
+  };
+
   const generateLastContactCalendarDays = () => {
     const year = lastContactCalendarDate.getFullYear();
     const month = lastContactCalendarDate.getMonth();
